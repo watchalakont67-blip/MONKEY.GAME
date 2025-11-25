@@ -37,21 +37,25 @@
             obstacleNormal = new PictureBox();
             obstacleDangerous = new PictureBox();
             lblScore = new Label();
-            pictureBox1 = new PictureBox();
+            obstacleHard = new PictureBox();
+            lblGameOver = new Label();
+            btnRestart = new Button();
             ((System.ComponentModel.ISupportInitialize)player).BeginInit();
             ((System.ComponentModel.ISupportInitialize)banana).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bananaSpecial).BeginInit();
             ((System.ComponentModel.ISupportInitialize)obstacleNormal).BeginInit();
             ((System.ComponentModel.ISupportInitialize)obstacleDangerous).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)obstacleHard).BeginInit();
             SuspendLayout();
             // 
             // player
             // 
+            player.BackColor = Color.Transparent;
             player.Image = (Image)resources.GetObject("player.Image");
-            player.Location = new Point(326, 256);
+            player.Location = new Point(353, 407);
+            player.Margin = new Padding(3, 4, 3, 4);
             player.Name = "player";
-            player.Size = new Size(138, 144);
+            player.Size = new Size(158, 192);
             player.SizeMode = PictureBoxSizeMode.StretchImage;
             player.TabIndex = 0;
             player.TabStop = false;
@@ -64,10 +68,12 @@
             // 
             // banana
             // 
+            banana.BackColor = Color.Transparent;
             banana.Image = (Image)resources.GetObject("banana.Image");
-            banana.Location = new Point(81, 45);
+            banana.Location = new Point(3, 1);
+            banana.Margin = new Padding(3, 4, 3, 4);
             banana.Name = "banana";
-            banana.Size = new Size(67, 68);
+            banana.Size = new Size(77, 91);
             banana.SizeMode = PictureBoxSizeMode.StretchImage;
             banana.TabIndex = 1;
             banana.TabStop = false;
@@ -75,30 +81,36 @@
             // 
             // bananaSpecial
             // 
+            bananaSpecial.BackColor = Color.Transparent;
             bananaSpecial.Image = (Image)resources.GetObject("bananaSpecial.Image");
-            bananaSpecial.Location = new Point(211, 45);
+            bananaSpecial.Location = new Point(77, 1);
+            bananaSpecial.Margin = new Padding(3, 4, 3, 4);
             bananaSpecial.Name = "bananaSpecial";
-            bananaSpecial.Size = new Size(73, 68);
+            bananaSpecial.Size = new Size(83, 91);
             bananaSpecial.SizeMode = PictureBoxSizeMode.StretchImage;
             bananaSpecial.TabIndex = 2;
             bananaSpecial.TabStop = false;
             // 
             // obstacleNormal
             // 
+            obstacleNormal.BackColor = Color.Transparent;
             obstacleNormal.Image = (Image)resources.GetObject("obstacleNormal.Image");
-            obstacleNormal.Location = new Point(347, 48);
+            obstacleNormal.Location = new Point(157, 1);
+            obstacleNormal.Margin = new Padding(3, 4, 3, 4);
             obstacleNormal.Name = "obstacleNormal";
-            obstacleNormal.Size = new Size(78, 65);
+            obstacleNormal.Size = new Size(104, 111);
             obstacleNormal.SizeMode = PictureBoxSizeMode.StretchImage;
             obstacleNormal.TabIndex = 3;
             obstacleNormal.TabStop = false;
             // 
             // obstacleDangerous
             // 
+            obstacleDangerous.BackColor = Color.Transparent;
             obstacleDangerous.Image = (Image)resources.GetObject("obstacleDangerous.Image");
-            obstacleDangerous.Location = new Point(488, 45);
+            obstacleDangerous.Location = new Point(136, 324);
+            obstacleDangerous.Margin = new Padding(3, 4, 3, 4);
             obstacleDangerous.Name = "obstacleDangerous";
-            obstacleDangerous.Size = new Size(78, 68);
+            obstacleDangerous.Size = new Size(200, 198);
             obstacleDangerous.SizeMode = PictureBoxSizeMode.StretchImage;
             obstacleDangerous.TabIndex = 4;
             obstacleDangerous.TabStop = false;
@@ -106,38 +118,71 @@
             // lblScore
             // 
             lblScore.AutoSize = true;
-            lblScore.Font = new Font("Segoe UI", 18F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            lblScore.Location = new Point(660, 20);
+            lblScore.BackColor = Color.Transparent;
+            lblScore.Font = new Font("Trebuchet MS", 19.8000011F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblScore.ForeColor = Color.Transparent;
+            lblScore.Location = new Point(765, 1);
             lblScore.Name = "lblScore";
-            lblScore.Size = new Size(98, 32);
+            lblScore.Size = new Size(149, 43);
             lblScore.TabIndex = 5;
             lblScore.Text = "Score: 0";
             lblScore.Click += lblScore_Click;
             // 
-            // pictureBox1
+            // obstacleHard
             // 
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(601, 66);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(113, 99);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
+            obstacleHard.BackColor = Color.Transparent;
+            obstacleHard.Image = (Image)resources.GetObject("obstacleHard.Image");
+            obstacleHard.Location = new Point(252, 1);
+            obstacleHard.Margin = new Padding(3, 4, 3, 4);
+            obstacleHard.Name = "obstacleHard";
+            obstacleHard.Size = new Size(111, 111);
+            obstacleHard.SizeMode = PictureBoxSizeMode.StretchImage;
+            obstacleHard.TabIndex = 6;
+            obstacleHard.TabStop = false;
+            obstacleHard.Visible = false;
+            // 
+            // lblGameOver
+            // 
+            lblGameOver.BackColor = Color.Transparent;
+            lblGameOver.Font = new Font("Snap ITC", 48F, FontStyle.Regular, GraphicsUnit.Point, 0);
+            lblGameOver.ForeColor = SystemColors.ButtonFace;
+            lblGameOver.Location = new Point(125, 108);
+            lblGameOver.Name = "lblGameOver";
+            lblGameOver.Size = new Size(682, 212);
+            lblGameOver.TabIndex = 7;
+            lblGameOver.Text = "GAME OVER";
+            lblGameOver.Visible = false;
+            lblGameOver.Click += lblGameOver_Click;
+            // 
+            // btnRestart
+            // 
+            btnRestart.Font = new Font("Showcard Gothic", 18F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnRestart.Location = new Point(706, 445);
+            btnRestart.Name = "btnRestart";
+            btnRestart.Size = new Size(187, 78);
+            btnRestart.TabIndex = 8;
+            btnRestart.Text = "Restart";
+            btnRestart.UseVisualStyleBackColor = true;
+            btnRestart.Visible = false;
+            btnRestart.Click += btnRestart_Click;
             // 
             // Form1
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(800, 450);
-            Controls.Add(pictureBox1);
+            ClientSize = new Size(914, 600);
+            Controls.Add(lblGameOver);
+            Controls.Add(btnRestart);
             Controls.Add(lblScore);
-            Controls.Add(obstacleDangerous);
-            Controls.Add(obstacleNormal);
-            Controls.Add(bananaSpecial);
             Controls.Add(banana);
             Controls.Add(player);
+            Controls.Add(obstacleNormal);
+            Controls.Add(bananaSpecial);
+            Controls.Add(obstacleDangerous);
+            Controls.Add(obstacleHard);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
             Load += Form1_Load;
@@ -148,7 +193,7 @@
             ((System.ComponentModel.ISupportInitialize)bananaSpecial).EndInit();
             ((System.ComponentModel.ISupportInitialize)obstacleNormal).EndInit();
             ((System.ComponentModel.ISupportInitialize)obstacleDangerous).EndInit();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)obstacleHard).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -162,6 +207,8 @@
         private PictureBox obstacleNormal;
         private PictureBox obstacleDangerous;
         private Label lblScore;
-        private PictureBox pictureBox1;
+        private PictureBox obstacleHard;
+        private Label lblGameOver;
+        private Button btnRestart;
     }
 }

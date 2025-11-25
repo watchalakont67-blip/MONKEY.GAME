@@ -1,4 +1,5 @@
 ﻿using System.Numerics;
+using System.Runtime.Intrinsics.X86;
 
 namespace g16556155a51651_5m62151651m51646e661
 {
@@ -8,11 +9,16 @@ namespace g16556155a51651_5m62151651m51646e661
         bool goRight;
         int score = 0;
 
+
         int playerSpeed = 12;
         int itemSpeed = 5;
         int itemSpecialSpeed = 8;
+
         int obstacleNormalSpeed = 7;
-        int obstacleDangerousSpeed = 10;
+        int obstacleHardSpeed = 7;
+        int obstacleDangerousSpeed = 8;
+
+        int nextSpawnScore = 30;
         Random rand = new Random();
         public Form1()
         {
@@ -20,13 +26,14 @@ namespace g16556155a51651_5m62151651m51646e661
             ResetBanana();
             ResetSpecialBanana();
             ResetObstacleNormal();
-            ResetObstacleDangerous();
+            ResetObstacleHard();
             this.DoubleBuffered = true;
         }
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            SetupGame();
+            gameTimer.Start();
         }
 
         private void timer1_Tick(object sender, EventArgs e)
@@ -47,9 +54,32 @@ namespace g16556155a51651_5m62151651m51646e661
             banana.Top += itemSpeed;
             bananaSpecial.Top += itemSpecialSpeed;
             obstacleNormal.Top += obstacleNormalSpeed;
+            obstacleHard.Top += obstacleHardSpeed;
             obstacleDangerous.Top += obstacleDangerousSpeed;
 
+            if (score >= nextSpawnScore)
+            {
+                obstacleDangerous.Top = -100;
+                obstacleDangerous.Left = rand.Next(0, this.ClientSize.Width - obstacleDangerous.Width);
+                obstacleDangerous.Visible = true;
+                nextSpawnScore += 30;
+            }
 
+           
+            if (obstacleDangerous.Visible == true)
+            {
+                obstacleDangerous.Top += obstacleDangerousSpeed;
+                
+                if (player.Bounds.IntersectsWith(obstacleDangerous.Bounds))
+                {
+                    GameOver(); 
+                    return;
+                }             
+                if (obstacleDangerous.Top > this.ClientSize.Height)
+                {
+                    obstacleDangerous.Visible = false;
+                }
+            }
 
 
             if (player.Bounds.IntersectsWith(banana.Bounds))
@@ -72,31 +102,33 @@ namespace g16556155a51651_5m62151651m51646e661
                 ResetObstacleNormal();
             }
 
-
-            if (player.Bounds.IntersectsWith(obstacleDangerous.Bounds))
+            if (player.Bounds.IntersectsWith(obstacleHard.Bounds))
             {
-                score -= 8;
-                ResetObstacleDangerous();
+                score -= 8; 
+                ResetObstacleHard();
             }
-
-
 
             if (banana.Top > this.ClientSize.Height) ResetBanana();
             if (bananaSpecial.Top > this.ClientSize.Height) ResetSpecialBanana();
-
-
-            if (obstacleNormal.Top > this.ClientSize.Height)
+            if (obstacleNormal.Top > this.ClientSize.Height) ResetObstacleNormal();                               
+            if (obstacleHard.Top > this.ClientSize.Height) ResetObstacleHard();
+          
+            if (score < 0)
             {
-                ResetObstacleNormal();
-            }
+                GameOver();
 
-
-            if (obstacleDangerous.Top > this.ClientSize.Height)
-            {
-                ResetObstacleDangerous();
             }
         }
+        private void GameOver()
+        {
+            gameTimer.Stop();
+            lblGameOver.Text = "GAME OVER\nScore: " + score;
 
+            lblGameOver.Visible = true;
+            btnRestart.Visible = true;
+
+            return;
+        }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
         {
             if (e.KeyCode == Keys.Left) goLeft = true;
@@ -125,25 +157,58 @@ namespace g16556155a51651_5m62151651m51646e661
             bananaSpecial.Top = rand.Next(-300, -150);
         }
 
-        private void ResetObstacleNormal() // <-- แก้ไขชื่อ
+        private void ResetObstacleNormal() 
         {
-            // ใช้ obstacleNormal.Left และ .Top
+
             obstacleNormal.Left = rand.Next(0, this.ClientSize.Width - obstacleNormal.Width);
             obstacleNormal.Top = rand.Next(-150, -50);
         }
-
-        // <-- ใหม่: ฟังก์ชันสำหรับสุ่มอุปสรรคอันตราย -->
-        private void ResetObstacleDangerous()
+        private void ResetObstacleHard()
         {
-            obstacleDangerous.Left = rand.Next(0, this.ClientSize.Width - obstacleDangerous.Width);
-            // ตั้งค่า Top ให้ติดลบเยอะๆ เพื่อให้โผล่มาไม่บ่อยเท่าอันธรรมดา
-            obstacleDangerous.Top = rand.Next(-500, -250);
+            obstacleHard.Left = rand.Next(0, this.ClientSize.Width - obstacleHard.Width);       
+            obstacleHard.Top = rand.Next(-400, -200);
         }
 
         private void lblScore_Click(object sender, EventArgs e)
         {
 
         }
+
+        private void lblGameOver_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void btnRestart_Click(object sender, EventArgs e)
+        {
+            score = 0;
+
+            gameTimer.Start();
+            SetupGame();
+       
+            lblGameOver.Visible = false;
+            btnRestart.Visible = false;
+
+            this.Focus();
+        }
+        private void SetupGame()
+        {
+            player.Location = new Point((this.ClientSize.Width - player.Width) / 2, this.ClientSize.Height - player.Height - 10);
+
+            ResetBanana();        
+            ResetSpecialBanana();   
+            ResetObstacleNormal();  
+            ResetObstacleHard();
+
+            nextSpawnScore = 30; 
+            obstacleDangerous.Visible = false;
+            obstacleHard.Visible = true;
+            obstacleDangerous.Top = -100;
+           
+            playerSpeed = 12;
+            goLeft = false;
+            goRight = false;
+        }      
     }
 }
 
