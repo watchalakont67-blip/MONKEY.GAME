@@ -20,6 +20,7 @@ namespace g16556155a51651_5m62151651m51646e661
 
         int nextSpawnScore = 30;
         Random rand = new Random();
+    
         public Form1()
         {
             InitializeComponent();
@@ -55,33 +56,69 @@ namespace g16556155a51651_5m62151651m51646e661
             bananaSpecial.Top += itemSpecialSpeed;
             obstacleNormal.Top += obstacleNormalSpeed;
             obstacleHard.Top += obstacleHardSpeed;
-            obstacleDangerous.Top += obstacleDangerousSpeed;
+
+
+
 
             if (score >= nextSpawnScore)
             {
                 obstacleDangerous.Top = -100;
                 obstacleDangerous.Left = rand.Next(0, this.ClientSize.Width - obstacleDangerous.Width);
                 obstacleDangerous.Visible = true;
+
+                obstacleDangerous2.Top = -100;
+                obstacleDangerous2.Left = rand.Next(0, this.ClientSize.Width - obstacleDangerous2.Width);
+                obstacleDangerous2.Visible = true;
+
+                obstacleDangerous3.Top = -100;
+                obstacleDangerous3.Left = rand.Next(0, this.ClientSize.Width - obstacleDangerous3.Width);
+                obstacleDangerous3.Visible = true;
+
                 nextSpawnScore += 30;
             }
 
-           
+
             if (obstacleDangerous.Visible == true)
             {
                 obstacleDangerous.Top += obstacleDangerousSpeed;
-                
                 if (player.Bounds.IntersectsWith(obstacleDangerous.Bounds))
                 {
-                    GameOver(); 
+                    GameOver();
                     return;
-                }             
+                }
                 if (obstacleDangerous.Top > this.ClientSize.Height)
                 {
-                    obstacleDangerous.Visible = false;
+                    obstacleDangerous.Visible = false; // ซ่อนเมื่อตกจอ
                 }
             }
 
+            if (obstacleDangerous2.Visible == true)
+            {
+                obstacleDangerous2.Top += obstacleDangerousSpeed;
+                if (player.Bounds.IntersectsWith(obstacleDangerous2.Bounds))
+                {
+                    GameOver();
+                    return;
+                }
+                if (obstacleDangerous2.Top > this.ClientSize.Height)
+                {
+                    obstacleDangerous2.Visible = false; // ซ่อนเมื่อตกจอ
+                }
+            }
+            if (obstacleDangerous3.Visible == true)
+            {
+                obstacleDangerous3.Top += obstacleDangerousSpeed;
+                if (player.Bounds.IntersectsWith(obstacleDangerous3.Bounds))
+                {
+                    GameOver();
+                    return;
+                }
 
+                if (obstacleDangerous3.Top > this.ClientSize.Height)
+                {
+                    obstacleDangerous3.Visible = false; // ซ่อนเมื่อตกจอ
+                }
+            }                       
             if (player.Bounds.IntersectsWith(banana.Bounds))
             {
                 score += 1;
@@ -200,11 +237,16 @@ namespace g16556155a51651_5m62151651m51646e661
             ResetObstacleNormal();  
             ResetObstacleHard();
 
-            nextSpawnScore = 30; 
-            obstacleDangerous.Visible = false;
+            nextSpawnScore = 30;
             obstacleHard.Visible = true;
+            obstacleDangerous.Visible = false;
+            obstacleDangerous2.Visible = false; 
+            obstacleDangerous3.Visible = false;
+            
             obstacleDangerous.Top = -100;
-           
+            obstacleDangerous2.Top = -100; 
+            obstacleDangerous3.Top = -100;
+
             playerSpeed = 12;
             goLeft = false;
             goRight = false;

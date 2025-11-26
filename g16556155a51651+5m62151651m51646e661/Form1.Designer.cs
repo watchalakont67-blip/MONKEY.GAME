@@ -40,19 +40,23 @@
             obstacleHard = new PictureBox();
             lblGameOver = new Label();
             btnRestart = new Button();
+            obstacleDangerous2 = new PictureBox();
+            obstacleDangerous3 = new PictureBox();
             ((System.ComponentModel.ISupportInitialize)player).BeginInit();
             ((System.ComponentModel.ISupportInitialize)banana).BeginInit();
             ((System.ComponentModel.ISupportInitialize)bananaSpecial).BeginInit();
             ((System.ComponentModel.ISupportInitialize)obstacleNormal).BeginInit();
             ((System.ComponentModel.ISupportInitialize)obstacleDangerous).BeginInit();
             ((System.ComponentModel.ISupportInitialize)obstacleHard).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)obstacleDangerous2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)obstacleDangerous3).BeginInit();
             SuspendLayout();
             // 
             // player
             // 
             player.BackColor = Color.Transparent;
             player.Image = (Image)resources.GetObject("player.Image");
-            player.Location = new Point(353, 407);
+            player.Location = new Point(342, 342);
             player.Margin = new Padding(3, 4, 3, 4);
             player.Name = "player";
             player.Size = new Size(158, 192);
@@ -166,6 +170,30 @@
             btnRestart.Visible = false;
             btnRestart.Click += btnRestart_Click;
             // 
+            // obstacleDangerous2
+            // 
+            obstacleDangerous2.BackColor = Color.Transparent;
+            obstacleDangerous2.Image = (Image)resources.GetObject("obstacleDangerous2.Image");
+            obstacleDangerous2.Location = new Point(706, 240);
+            obstacleDangerous2.Margin = new Padding(3, 4, 3, 4);
+            obstacleDangerous2.Name = "obstacleDangerous2";
+            obstacleDangerous2.Size = new Size(200, 198);
+            obstacleDangerous2.SizeMode = PictureBoxSizeMode.StretchImage;
+            obstacleDangerous2.TabIndex = 9;
+            obstacleDangerous2.TabStop = false;
+            // 
+            // obstacleDangerous3
+            // 
+            obstacleDangerous3.BackColor = Color.Transparent;
+            obstacleDangerous3.Image = (Image)resources.GetObject("obstacleDangerous3.Image");
+            obstacleDangerous3.Location = new Point(535, 240);
+            obstacleDangerous3.Margin = new Padding(3, 4, 3, 4);
+            obstacleDangerous3.Name = "obstacleDangerous3";
+            obstacleDangerous3.Size = new Size(200, 198);
+            obstacleDangerous3.SizeMode = PictureBoxSizeMode.StretchImage;
+            obstacleDangerous3.TabIndex = 10;
+            obstacleDangerous3.TabStop = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -182,6 +210,8 @@
             Controls.Add(bananaSpecial);
             Controls.Add(obstacleDangerous);
             Controls.Add(obstacleHard);
+            Controls.Add(obstacleDangerous3);
+            Controls.Add(obstacleDangerous2);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";
@@ -194,6 +224,8 @@
             ((System.ComponentModel.ISupportInitialize)obstacleNormal).EndInit();
             ((System.ComponentModel.ISupportInitialize)obstacleDangerous).EndInit();
             ((System.ComponentModel.ISupportInitialize)obstacleHard).EndInit();
+            ((System.ComponentModel.ISupportInitialize)obstacleDangerous2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)obstacleDangerous3).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -210,5 +242,7 @@
         private PictureBox obstacleHard;
         private Label lblGameOver;
         private Button btnRestart;
+        private PictureBox obstacleDangerous2;
+        private PictureBox obstacleDangerous3;
     }
 }
