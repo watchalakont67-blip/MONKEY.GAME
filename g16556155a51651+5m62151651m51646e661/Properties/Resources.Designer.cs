@@ -63,9 +63,19 @@ namespace g16556155a51651_5m62151651m51646e661.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
-        internal static System.Drawing.Bitmap ลงิเจี๊ยวใหญ่ {
+        internal static System.Drawing.Bitmap MonkeyDefault {
             get {
-                object obj = ResourceManager.GetObject("ลงิเจี๊ยวใหญ่", resourceCulture);
+                object obj = ResourceManager.GetObject("MonkeyDefault", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Ninja_Costume {
+            get {
+                object obj = ResourceManager.GetObject("Ninja_Costume", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

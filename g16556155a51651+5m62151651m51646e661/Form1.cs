@@ -9,6 +9,8 @@ namespace g16556155a51651_5m62151651m51646e661
         bool goRight;
         int score = 0;
 
+        public int money = 0; 
+        public string activeCharacter = "Default";
 
         int playerSpeed = 12;
         int itemSpeed = 5;
@@ -20,7 +22,7 @@ namespace g16556155a51651_5m62151651m51646e661
 
         int nextSpawnScore = 30;
         Random rand = new Random();
-    
+
         public Form1()
         {
             InitializeComponent();
@@ -118,7 +120,7 @@ namespace g16556155a51651_5m62151651m51646e661
                 {
                     obstacleDangerous3.Visible = false; // ซ่อนเมื่อตกจอ
                 }
-            }                       
+            }
             if (player.Bounds.IntersectsWith(banana.Bounds))
             {
                 score += 1;
@@ -141,15 +143,15 @@ namespace g16556155a51651_5m62151651m51646e661
 
             if (player.Bounds.IntersectsWith(obstacleHard.Bounds))
             {
-                score -= 8; 
+                score -= 8;
                 ResetObstacleHard();
             }
 
             if (banana.Top > this.ClientSize.Height) ResetBanana();
             if (bananaSpecial.Top > this.ClientSize.Height) ResetSpecialBanana();
-            if (obstacleNormal.Top > this.ClientSize.Height) ResetObstacleNormal();                               
+            if (obstacleNormal.Top > this.ClientSize.Height) ResetObstacleNormal();
             if (obstacleHard.Top > this.ClientSize.Height) ResetObstacleHard();
-          
+
             if (score < 0)
             {
                 GameOver();
@@ -159,11 +161,12 @@ namespace g16556155a51651_5m62151651m51646e661
         private void GameOver()
         {
             gameTimer.Stop();
+            money += score;
             lblGameOver.Text = "GAME OVER\nScore: " + score;
 
             lblGameOver.Visible = true;
             btnRestart.Visible = true;
-
+            btnShop.Visible = true;
             return;
         }
         private void Form1_KeyDown(object sender, KeyEventArgs e)
@@ -194,7 +197,7 @@ namespace g16556155a51651_5m62151651m51646e661
             bananaSpecial.Top = rand.Next(-300, -150);
         }
 
-        private void ResetObstacleNormal() 
+        private void ResetObstacleNormal()
         {
 
             obstacleNormal.Left = rand.Next(0, this.ClientSize.Width - obstacleNormal.Width);
@@ -202,7 +205,7 @@ namespace g16556155a51651_5m62151651m51646e661
         }
         private void ResetObstacleHard()
         {
-            obstacleHard.Left = rand.Next(0, this.ClientSize.Width - obstacleHard.Width);       
+            obstacleHard.Left = rand.Next(0, this.ClientSize.Width - obstacleHard.Width);
             obstacleHard.Top = rand.Next(-400, -200);
         }
 
@@ -222,9 +225,12 @@ namespace g16556155a51651_5m62151651m51646e661
 
             gameTimer.Start();
             SetupGame();
-       
+
             lblGameOver.Visible = false;
             btnRestart.Visible = false;
+
+            goLeft = false;
+            goRight = false;
 
             this.Focus();
         }
@@ -232,27 +238,57 @@ namespace g16556155a51651_5m62151651m51646e661
         {
             player.Location = new Point((this.ClientSize.Width - player.Width) / 2, this.ClientSize.Height - player.Height - 10);
 
-            ResetBanana();        
-            ResetSpecialBanana();   
-            ResetObstacleNormal();  
+            ResetBanana();
+            ResetSpecialBanana();
+            ResetObstacleNormal();
             ResetObstacleHard();
 
             nextSpawnScore = 30;
             obstacleHard.Visible = true;
             obstacleDangerous.Visible = false;
-            obstacleDangerous2.Visible = false; 
+            obstacleDangerous2.Visible = false;
             obstacleDangerous3.Visible = false;
-            
+
             obstacleDangerous.Top = -100;
-            obstacleDangerous2.Top = -100; 
+            obstacleDangerous2.Top = -100;
             obstacleDangerous3.Top = -100;
+
+            UpdatePlayerAppearance(activeCharacter);
+            btnShop.Visible = false;
 
             playerSpeed = 12;
             goLeft = false;
             goRight = false;
-        }      
+        }
+
+        private void btnShop_Click(object sender, EventArgs e)
+        {
+            OpenShop();
+        }   
+        private void OpenShop()
+        {
+            
+            using (ShopForm shop = new ShopForm(this))
+            {
+                
+                shop.ShowDialog();
+            }            
+            UpdatePlayerAppearance(activeCharacter);
+        }
+        private void UpdatePlayerAppearance(string characterName)
+        {
+            if (characterName == "Default")
+            {
+                player.Image = global::g16556155a51651_5m62151651m51646e661.Properties.Resources.MonkeyDefault;
+            }
+            else if (characterName == "Ninja")
+            {
+                player.Image = global::g16556155a51651_5m62151651m51646e661.Properties.Resources.Ninja_Costume;
+            }                                                          
+        }
     }
 }
+
 
 
 
