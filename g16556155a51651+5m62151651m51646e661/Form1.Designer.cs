@@ -145,7 +145,7 @@
             lblGameOver.TabIndex = 7;
             lblGameOver.Text = "GAME OVER";
             lblGameOver.Visible = false;
-            lblGameOver.Click += lblGameOver_Click;
+           
             // 
             // btnRestart
             // 
@@ -175,7 +175,7 @@
             // 
             obstacleDangerous3.BackColor = Color.Transparent;
             obstacleDangerous3.Image = (Image)resources.GetObject("obstacleDangerous3.Image");
-            obstacleDangerous3.Location = new Point(535, 240);
+            obstacleDangerous3.Location = new Point(439, 236);
             obstacleDangerous3.Margin = new Padding(3, 4, 3, 4);
             obstacleDangerous3.Name = "obstacleDangerous3";
             obstacleDangerous3.Size = new Size(200, 198);
@@ -213,7 +213,6 @@
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(914, 600);
-            Controls.Add(player);
             Controls.Add(btnShop);
             Controls.Add(lblGameOver);
             Controls.Add(btnRestart);
@@ -225,6 +224,7 @@
             Controls.Add(obstacleHard);
             Controls.Add(obstacleDangerous3);
             Controls.Add(obstacleDangerous2);
+            Controls.Add(player);
             Margin = new Padding(3, 4, 3, 4);
             Name = "Form1";
             Text = "Form1";

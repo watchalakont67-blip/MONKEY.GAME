@@ -9,7 +9,7 @@ namespace g16556155a51651_5m62151651m51646e661
         bool goRight;
         int score = 0;
 
-        public int money = 0; 
+        public int money = 0;
         public string activeCharacter = "Default";
 
         int playerSpeed = 12;
@@ -32,17 +32,14 @@ namespace g16556155a51651_5m62151651m51646e661
             ResetObstacleHard();
             this.DoubleBuffered = true;
         }
-
         private void Form1_Load(object sender, EventArgs e)
         {
             SetupGame();
             gameTimer.Start();
         }
-
         private void timer1_Tick(object sender, EventArgs e)
         {
             lblScore.Text = "Score: " + score;
-
 
             if (goLeft && player.Left > 0)
             {
@@ -53,14 +50,10 @@ namespace g16556155a51651_5m62151651m51646e661
                 player.Left += playerSpeed;
             }
 
-
             banana.Top += itemSpeed;
             bananaSpecial.Top += itemSpecialSpeed;
             obstacleNormal.Top += obstacleNormalSpeed;
             obstacleHard.Top += obstacleHardSpeed;
-
-
-
 
             if (score >= nextSpawnScore)
             {
@@ -78,7 +71,6 @@ namespace g16556155a51651_5m62151651m51646e661
 
                 nextSpawnScore += 30;
             }
-
 
             if (obstacleDangerous.Visible == true)
             {
@@ -133,7 +125,6 @@ namespace g16556155a51651_5m62151651m51646e661
                 score += 10;
                 ResetSpecialBanana();
             }
-
 
             if (player.Bounds.IntersectsWith(obstacleNormal.Bounds))
             {
@@ -213,22 +204,14 @@ namespace g16556155a51651_5m62151651m51646e661
         {
 
         }
-
-        private void lblGameOver_Click(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnRestart_Click(object sender, EventArgs e)
         {
             score = 0;
-
             gameTimer.Start();
             SetupGame();
 
             lblGameOver.Visible = false;
             btnRestart.Visible = false;
-
             goLeft = false;
             goRight = false;
 
@@ -237,7 +220,6 @@ namespace g16556155a51651_5m62151651m51646e661
         private void SetupGame()
         {
             player.Location = new Point((this.ClientSize.Width - player.Width) / 2, this.ClientSize.Height - player.Height - 10);
-
             ResetBanana();
             ResetSpecialBanana();
             ResetObstacleNormal();
@@ -255,24 +237,20 @@ namespace g16556155a51651_5m62151651m51646e661
 
             UpdatePlayerAppearance(activeCharacter);
             btnShop.Visible = false;
-
             playerSpeed = 12;
             goLeft = false;
             goRight = false;
         }
-
         private void btnShop_Click(object sender, EventArgs e)
         {
             OpenShop();
-        }   
+        }
         private void OpenShop()
         {
-            
             using (ShopForm shop = new ShopForm(this))
             {
-                
                 shop.ShowDialog();
-            }            
+            }
             UpdatePlayerAppearance(activeCharacter);
         }
         private void UpdatePlayerAppearance(string characterName)
@@ -284,11 +262,50 @@ namespace g16556155a51651_5m62151651m51646e661
             else if (characterName == "Ninja")
             {
                 player.Image = global::g16556155a51651_5m62151651m51646e661.Properties.Resources.Ninja_Costume;
-            }                                                          
+            }
+            else if (characterName == "Christmas")
+            {
+                player.Image = global::g16556155a51651_5m62151651m51646e661.Properties.Resources.Christmas_Costume;
+            }
+            else if (characterName == "Halloween")
+            {
+                player.Image = global::g16556155a51651_5m62151651m51646e661.Properties.Resources.Halloween_Costume;
+            }
+            else if (characterName == "Knight")
+            {
+                player.Image = global::g16556155a51651_5m62151651m51646e661.Properties.Resources.Knight_Costume;
+            }
+            else if (characterName == "Hawaii")
+            {
+                player.Image = global::g16556155a51651_5m62151651m51646e661.Properties.Resources.Hawaii_Costume;
+            }
+            else if (characterName == "Student")
+            {
+                player.Image = global::g16556155a51651_5m62151651m51646e661.Properties.Resources.Student_Costume;
+            }
+            else if (characterName == "Gym")
+            {
+                player.Image = global::g16556155a51651_5m62151651m51646e661.Properties.Resources.Gym_Costume;
+            }
+            else if (characterName == "Monkey")
+            {
+                player.Image = global::g16556155a51651_5m62151651m51646e661.Properties.Resources.MonkeyDefault;
+            }
+            else if (characterName == "KamenV1")
+            {
+                player.Image = global::g16556155a51651_5m62151651m51646e661.Properties.Resources.KamenV1_Costume;
+            }
+            else if (characterName == "KamenV2")
+            {
+                player.Image = global::g16556155a51651_5m62151651m51646e661.Properties.Resources.KamenV2_Costume;
+            }
+            else if (characterName == "KamenW")
+            {                
+                player.Image = global::g16556155a51651_5m62151651m51646e661.Properties.Resources.KamenW_Costume;
+            }
         }
     }
 }
-
 
 
 

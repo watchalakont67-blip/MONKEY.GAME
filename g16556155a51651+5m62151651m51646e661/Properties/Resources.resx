@@ -124,4 +124,31 @@
   <data name="MonkeyDefault" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\monkeyn.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="KamenV1_Costume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\13320_0-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Gym_Costume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\13325_0-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Halloween_Costume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\13315_0-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Christmas_Costume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\13316_0-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Student_Costume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\13317_0-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KamenW_Costume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\13318_0-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="KamenV2_Costume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\13319_0-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Hawaii_Costume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\13328-removebg-preview.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Knight_Costume" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\13314_0-removebg-preview2.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
 </root>

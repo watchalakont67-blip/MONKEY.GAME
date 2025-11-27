@@ -63,6 +63,86 @@ namespace g16556155a51651_5m62151651m51646e661.Properties {
         /// <summary>
         ///   Looks up a localized resource of type System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Christmas_Costume {
+            get {
+                object obj = ResourceManager.GetObject("Christmas_Costume", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Gym_Costume {
+            get {
+                object obj = ResourceManager.GetObject("Gym_Costume", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Halloween_Costume {
+            get {
+                object obj = ResourceManager.GetObject("Halloween_Costume", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Hawaii_Costume {
+            get {
+                object obj = ResourceManager.GetObject("Hawaii_Costume", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KamenV1_Costume {
+            get {
+                object obj = ResourceManager.GetObject("KamenV1_Costume", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KamenV2_Costume {
+            get {
+                object obj = ResourceManager.GetObject("KamenV2_Costume", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap KamenW_Costume {
+            get {
+                object obj = ResourceManager.GetObject("KamenW_Costume", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Knight_Costume {
+            get {
+                object obj = ResourceManager.GetObject("Knight_Costume", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap MonkeyDefault {
             get {
                 object obj = ResourceManager.GetObject("MonkeyDefault", resourceCulture);
@@ -76,6 +156,16 @@ namespace g16556155a51651_5m62151651m51646e661.Properties {
         internal static System.Drawing.Bitmap Ninja_Costume {
             get {
                 object obj = ResourceManager.GetObject("Ninja_Costume", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Student_Costume {
+            get {
+                object obj = ResourceManager.GetObject("Student_Costume", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

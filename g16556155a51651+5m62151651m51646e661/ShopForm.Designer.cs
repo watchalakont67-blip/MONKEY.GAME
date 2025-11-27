@@ -31,7 +31,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ShopForm));
             lblMoney = new Label();
             pictureBox1 = new PictureBox();
-            button1 = new Button();
+            btnBuyChristmas = new Button();
             pictureBox2 = new PictureBox();
             pictureBox3 = new PictureBox();
             pictureBox4 = new PictureBox();
@@ -41,15 +41,15 @@
             pictureBox8 = new PictureBox();
             pictureBox9 = new PictureBox();
             pictureBox10 = new PictureBox();
-            button3 = new Button();
-            button9 = new Button();
-            button12 = new Button();
-            button5 = new Button();
-            button2 = new Button();
-            button4 = new Button();
-            button6 = new Button();
-            button7 = new Button();
-            button8 = new Button();
+            btnBuyV2 = new Button();
+            btnBuyHalloween = new Button();
+            btnBuyKnight = new Button();
+            btnBuyV1 = new Button();
+            btnBuyHawaii = new Button();
+            btnBuyGym = new Button();
+            btnBuyW = new Button();
+            btnBuy = new Button();
+            btnBuyStudent = new Button();
             lblCharacterStatus = new PictureBox();
             btnBuyNinja = new Button();
             btnBack = new Button();
@@ -79,7 +79,7 @@
             // pictureBox1
             // 
             pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Image = Properties.Resources.KamenW_Costume;
             pictureBox1.Location = new Point(271, 425);
             pictureBox1.Name = "pictureBox1";
             pictureBox1.Size = new Size(113, 136);
@@ -87,20 +87,21 @@
             pictureBox1.TabIndex = 2;
             pictureBox1.TabStop = false;
             // 
-            // button1
+            // btnBuyChristmas
             // 
-            button1.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button1.Location = new Point(396, 179);
-            button1.Name = "button1";
-            button1.Size = new Size(66, 54);
-            button1.TabIndex = 3;
-            button1.Text = "BUY";
-            button1.UseVisualStyleBackColor = true;
+            btnBuyChristmas.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuyChristmas.Location = new Point(396, 179);
+            btnBuyChristmas.Name = "btnBuyChristmas";
+            btnBuyChristmas.Size = new Size(66, 54);
+            btnBuyChristmas.TabIndex = 3;
+            btnBuyChristmas.Text = "BUY";
+            btnBuyChristmas.UseVisualStyleBackColor = true;
+            btnBuyChristmas.Click += btnBuyChristmas_Click;
             // 
             // pictureBox2
             // 
             pictureBox2.BackColor = Color.Transparent;
-            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Image = Properties.Resources.Halloween_Costume;
             pictureBox2.Location = new Point(778, 97);
             pictureBox2.Name = "pictureBox2";
             pictureBox2.Size = new Size(114, 136);
@@ -111,7 +112,7 @@
             // pictureBox3
             // 
             pictureBox3.BackColor = Color.Transparent;
-            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Image = Properties.Resources.KamenV2_Costume;
             pictureBox3.Location = new Point(524, 124);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(113, 136);
@@ -123,8 +124,8 @@
             // pictureBox4
             // 
             pictureBox4.BackColor = Color.Transparent;
-            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
-            pictureBox4.Location = new Point(271, 124);
+            pictureBox4.Image = Properties.Resources.Christmas_Costume;
+            pictureBox4.Location = new Point(265, 124);
             pictureBox4.Name = "pictureBox4";
             pictureBox4.Size = new Size(119, 136);
             pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -134,7 +135,7 @@
             // pictureBox5
             // 
             pictureBox5.BackColor = Color.Transparent;
-            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Image = Properties.Resources.Student_Costume;
             pictureBox5.Location = new Point(778, 432);
             pictureBox5.Name = "pictureBox5";
             pictureBox5.Size = new Size(114, 129);
@@ -145,7 +146,7 @@
             // pictureBox6
             // 
             pictureBox6.BackColor = Color.Transparent;
-            pictureBox6.Image = (Image)resources.GetObject("pictureBox6.Image");
+            pictureBox6.Image = Properties.Resources.Knight_Costume;
             pictureBox6.Location = new Point(12, 97);
             pictureBox6.Name = "pictureBox6";
             pictureBox6.Size = new Size(123, 136);
@@ -156,7 +157,7 @@
             // pictureBox7
             // 
             pictureBox7.BackColor = Color.Transparent;
-            pictureBox7.Image = (Image)resources.GetObject("pictureBox7.Image");
+            pictureBox7.Image = Properties.Resources.KamenV1_Costume;
             pictureBox7.Location = new Point(12, 251);
             pictureBox7.Name = "pictureBox7";
             pictureBox7.Size = new Size(104, 132);
@@ -167,7 +168,7 @@
             // pictureBox8
             // 
             pictureBox8.BackColor = Color.Transparent;
-            pictureBox8.Image = (Image)resources.GetObject("pictureBox8.Image");
+            pictureBox8.Image = Properties.Resources.Gym_Costume;
             pictureBox8.Location = new Point(-7, 425);
             pictureBox8.Name = "pictureBox8";
             pictureBox8.Size = new Size(123, 136);
@@ -189,7 +190,7 @@
             // pictureBox10
             // 
             pictureBox10.BackColor = Color.Transparent;
-            pictureBox10.Image = (Image)resources.GetObject("pictureBox10.Image");
+            pictureBox10.Image = Properties.Resources.Hawaii_Costume;
             pictureBox10.Location = new Point(770, 247);
             pictureBox10.Name = "pictureBox10";
             pictureBox10.Size = new Size(122, 136);
@@ -197,95 +198,104 @@
             pictureBox10.TabIndex = 18;
             pictureBox10.TabStop = false;
             // 
-            // button3
+            // btnBuyV2
             // 
-            button3.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button3.Location = new Point(652, 179);
-            button3.Name = "button3";
-            button3.Size = new Size(66, 54);
-            button3.TabIndex = 21;
-            button3.Text = "BUY";
-            button3.UseVisualStyleBackColor = true;
+            btnBuyV2.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuyV2.Location = new Point(652, 179);
+            btnBuyV2.Name = "btnBuyV2";
+            btnBuyV2.Size = new Size(66, 54);
+            btnBuyV2.TabIndex = 21;
+            btnBuyV2.Text = "BUY";
+            btnBuyV2.UseVisualStyleBackColor = true;
+            btnBuyV2.Click += btnBuyV2_Click;
             // 
-            // button9
+            // btnBuyHalloween
             // 
-            button9.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button9.Location = new Point(907, 171);
-            button9.Name = "button9";
-            button9.Size = new Size(66, 54);
-            button9.TabIndex = 22;
-            button9.Text = "BUY";
-            button9.UseVisualStyleBackColor = true;
+            btnBuyHalloween.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuyHalloween.Location = new Point(907, 171);
+            btnBuyHalloween.Name = "btnBuyHalloween";
+            btnBuyHalloween.Size = new Size(66, 54);
+            btnBuyHalloween.TabIndex = 22;
+            btnBuyHalloween.Text = "BUY";
+            btnBuyHalloween.UseVisualStyleBackColor = true;
+            btnBuyHalloween.Click += btnBuyHalloween_Click;
             // 
-            // button12
+            // btnBuyKnight
             // 
-            button12.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button12.Location = new Point(141, 171);
-            button12.Name = "button12";
-            button12.Size = new Size(66, 54);
-            button12.TabIndex = 23;
-            button12.Text = "BUY";
-            button12.UseVisualStyleBackColor = true;
+            btnBuyKnight.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuyKnight.Location = new Point(141, 171);
+            btnBuyKnight.Name = "btnBuyKnight";
+            btnBuyKnight.Size = new Size(66, 54);
+            btnBuyKnight.TabIndex = 23;
+            btnBuyKnight.Text = "BUY";
+            btnBuyKnight.UseVisualStyleBackColor = true;
+            btnBuyKnight.Click += btnBuyKnight_Click;
             // 
-            // button5
+            // btnBuyV1
             // 
-            button5.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button5.Location = new Point(141, 302);
-            button5.Name = "button5";
-            button5.Size = new Size(66, 54);
-            button5.TabIndex = 24;
-            button5.Text = "BUY";
-            button5.UseVisualStyleBackColor = true;
+            btnBuyV1.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuyV1.Location = new Point(141, 302);
+            btnBuyV1.Name = "btnBuyV1";
+            btnBuyV1.Size = new Size(66, 54);
+            btnBuyV1.TabIndex = 24;
+            btnBuyV1.Text = "BUY";
+            btnBuyV1.UseVisualStyleBackColor = true;
+            btnBuyV1.Click += btnBuyV1_Click;
             // 
-            // button2
+            // btnBuyHawaii
             // 
-            button2.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button2.Location = new Point(907, 287);
-            button2.Name = "button2";
-            button2.Size = new Size(66, 54);
-            button2.TabIndex = 25;
-            button2.Text = "BUY";
-            button2.UseVisualStyleBackColor = true;
+            btnBuyHawaii.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuyHawaii.Location = new Point(907, 287);
+            btnBuyHawaii.Name = "btnBuyHawaii";
+            btnBuyHawaii.Size = new Size(66, 54);
+            btnBuyHawaii.TabIndex = 25;
+            btnBuyHawaii.Text = "BUY";
+            btnBuyHawaii.UseVisualStyleBackColor = true;
+            btnBuyHawaii.Click += btnBuyHawaii_Click;
             // 
-            // button4
+            // btnBuyGym
             // 
-            button4.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button4.Location = new Point(141, 472);
-            button4.Name = "button4";
-            button4.Size = new Size(66, 54);
-            button4.TabIndex = 26;
-            button4.Text = "BUY";
-            button4.UseVisualStyleBackColor = true;
+            btnBuyGym.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuyGym.Location = new Point(141, 472);
+            btnBuyGym.Name = "btnBuyGym";
+            btnBuyGym.Size = new Size(66, 54);
+            btnBuyGym.TabIndex = 26;
+            btnBuyGym.Text = "BUY";
+            btnBuyGym.UseVisualStyleBackColor = true;
+            btnBuyGym.Click += btnBuyGym_Click;
             // 
-            // button6
+            // btnBuyW
             // 
-            button6.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button6.Location = new Point(390, 472);
-            button6.Name = "button6";
-            button6.Size = new Size(66, 54);
-            button6.TabIndex = 27;
-            button6.Text = "BUY";
-            button6.UseVisualStyleBackColor = true;
+            btnBuyW.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuyW.Location = new Point(390, 472);
+            btnBuyW.Name = "btnBuyW";
+            btnBuyW.Size = new Size(66, 54);
+            btnBuyW.TabIndex = 27;
+            btnBuyW.Text = "BUY";
+            btnBuyW.UseVisualStyleBackColor = true;
+            btnBuyW.Click += btnBuyW_Click;
             // 
-            // button7
+            // btnBuy
             // 
-            button7.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button7.Location = new Point(643, 472);
-            button7.Name = "button7";
-            button7.Size = new Size(66, 54);
-            button7.TabIndex = 28;
-            button7.Text = "BUY";
-            button7.UseVisualStyleBackColor = true;
+            btnBuy.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuy.Location = new Point(643, 472);
+            btnBuy.Name = "btnBuy";
+            btnBuy.Size = new Size(66, 54);
+            btnBuy.TabIndex = 28;
+            btnBuy.Text = "BUY";
+            btnBuy.UseVisualStyleBackColor = true;
+            btnBuy.Click += btnBuy_Click;
             // 
-            // button8
+            // btnBuyStudent
             // 
-            button8.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            button8.Location = new Point(907, 472);
-            button8.Name = "button8";
-            button8.Size = new Size(66, 54);
-            button8.TabIndex = 29;
-            button8.Text = "BUY";
-            button8.UseVisualStyleBackColor = true;
+            btnBuyStudent.Font = new Font("SimSun-ExtG", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnBuyStudent.Location = new Point(907, 472);
+            btnBuyStudent.Name = "btnBuyStudent";
+            btnBuyStudent.Size = new Size(66, 54);
+            btnBuyStudent.TabIndex = 29;
+            btnBuyStudent.Text = "BUY";
+            btnBuyStudent.UseVisualStyleBackColor = true;
+            btnBuyStudent.Click += btnBuyStudent_Click;
             // 
             // lblCharacterStatus
             // 
@@ -331,15 +341,15 @@
             Controls.Add(btnBack);
             Controls.Add(btnBuyNinja);
             Controls.Add(lblCharacterStatus);
-            Controls.Add(button8);
-            Controls.Add(button7);
-            Controls.Add(button6);
-            Controls.Add(button4);
-            Controls.Add(button2);
-            Controls.Add(button5);
-            Controls.Add(button12);
-            Controls.Add(button9);
-            Controls.Add(button3);
+            Controls.Add(btnBuyStudent);
+            Controls.Add(btnBuy);
+            Controls.Add(btnBuyW);
+            Controls.Add(btnBuyGym);
+            Controls.Add(btnBuyHawaii);
+            Controls.Add(btnBuyV1);
+            Controls.Add(btnBuyKnight);
+            Controls.Add(btnBuyHalloween);
+            Controls.Add(btnBuyV2);
             Controls.Add(pictureBox10);
             Controls.Add(pictureBox9);
             Controls.Add(pictureBox8);
@@ -349,7 +359,7 @@
             Controls.Add(pictureBox4);
             Controls.Add(pictureBox3);
             Controls.Add(pictureBox2);
-            Controls.Add(button1);
+            Controls.Add(btnBuyChristmas);
             Controls.Add(pictureBox1);
             Controls.Add(lblMoney);
             Name = "ShopForm";
@@ -374,7 +384,7 @@
 
         private Label lblMoney;
         private PictureBox pictureBox1;
-        private Button button1;
+        private Button btnBuyChristmas;
         private PictureBox pictureBox2;
         private PictureBox pictureBox3;
         private PictureBox pictureBox4;
@@ -384,15 +394,15 @@
         private PictureBox pictureBox8;
         private PictureBox pictureBox9;
         private PictureBox pictureBox10;
-        private Button button3;
-        private Button button9;
-        private Button button12;
-        private Button button5;
-        private Button button2;
-        private Button button4;
-        private Button button6;
-        private Button button7;
-        private Button button8;
+        private Button btnBuyV2;
+        private Button btnBuyHalloween;
+        private Button btnBuyKnight;
+        private Button btnBuyV1;
+        private Button btnBuyHawaii;
+        private Button btnBuyGym;
+        private Button btnBuyW;
+        private Button btnBuy;
+        private Button btnBuyStudent;
         private PictureBox lblCharacterStatus;
         private Button btnBuyNinja;
         private Button btnBack;
